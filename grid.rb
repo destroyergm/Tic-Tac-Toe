@@ -45,7 +45,7 @@ class Grid
 	end
 
 	def render
-		# system "clear"
+		system "clear"
 		@board.each_with_index do |i,index_i|
 			10.times {print " "} # offset to center
 			i.each_with_index do |j,index_j|
