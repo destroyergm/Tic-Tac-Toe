@@ -9,6 +9,11 @@ class Grid
 		end
 	end
 
+	def put_piece(x,y,piece)
+		@board[x][y] = piece
+	end
+
+
 	def render
 		@board.each_with_index do |i,index_i|
 			10.times {print " "} # offset to center
