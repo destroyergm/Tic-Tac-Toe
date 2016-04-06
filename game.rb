@@ -13,17 +13,27 @@ class Game
 
 	def start
 		@active = [@p1,@p2].sample
+		@moves = 0
 		until game_over?
 			@grid.render
+			puts "#Moves: #{@moves}"
 			print "It's #{@active.name}'s turn: "
-			@grid.put_piece(1,1,@active.symb)
+			until @grid.put_piece(gets.chomp.to_i - 1,@active.symb)
+				print "[Error] Invalid move, please move again: "
+			end
 			switch_turn
-			gets.chomp
+			@moves += 1
 		end
+		@grid.render
+		puts "Game over"
+		# Switch the turn to display the winning player
+		switch_turn
+		puts "Player #{@active.name}(#{@active.symb}) has won."
 	end
 
 	def game_over?
-		false
+		# Check the last move for victory condition
+		@grid.finished? || @moves == 9
 	end
 
 	def switch_turn 
