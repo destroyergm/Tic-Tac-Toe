@@ -30,14 +30,17 @@ class Grid
 			end
 		end
 
-		# check verticals TODO: Finish vertivals and diagonals
-		@board.each do |array|
-			arr = []
-			array.each_with_index {|i,elem| arr << elem if i == 0}
-			puts arr.join("")
+		# check verticals
+		matrix_trans.each do |array|
+			puts array.join("")
+			if array.join("") =~ /x{3}|o{3}/
+				return true
+			end
 		end
-
 		# check diagonals
+		return true if diagonal_main.join("") =~ /x{3}|o{3}/
+		return true if diagonal_other.join("") =~ /x{3}|o{3}/
+
 		false
 	end
 
@@ -54,5 +57,32 @@ class Grid
 			puts "-----------".center(14) unless index_i == 2
 		end
 		puts
+	end
+
+	private
+	def matrix_trans
+		mat = Array.new(3) { |i| Array.new }
+		for i in (0..2)
+			for j in (0..2)
+				mat[j][i] = @board[i][j]
+			end
+		end
+		mat
+	end
+
+	def diagonal_main
+		d = Array.new(3)
+			d[0] = @board[0][0]
+			d[1] = @board[1][1]
+			d[2] = @board[2][2]
+		d
+	end
+
+	def diagonal_other
+		d = Array.new(3)
+			d[0] = @board[2][0]
+			d[1] = @board[1][1]
+			d[2] = @board[0][2]
+		d
 	end
 end

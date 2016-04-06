@@ -16,7 +16,6 @@ class Game
 		@moves = 0
 		until game_over?
 			@grid.render
-			puts "#Moves: #{@moves}"
 			print "It's #{@active.name}'s turn: "
 			until @grid.put_piece(gets.chomp.to_i - 1,@active.symb)
 				print "[Error] Invalid move, please move again: "
