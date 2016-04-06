@@ -12,5 +12,7 @@ To play a turn enter 1-9, depending on the cell you want to place your mark on.
  - 2 Player tic-tac-toe game
  - Randomly chosen player to start
  - Players can set names
+ 
+
 # Planed features ( maybe in the future )
  - [ ] AI
