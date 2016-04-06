@@ -16,3 +16,4 @@ To play a turn enter 1-9, depending on the cell you want to place your mark on.
 
 # Planed features ( maybe in the future )
  - [ ] AI
+ - [ ] Bigger boards
